@@ -10,7 +10,7 @@
 
 ### Useful links
 
-[Room Persistence Library at developer.android](https://developer.android.com/topic/libraries/architecture/room)
+[Room Persistence Library at developer.android.com](https://developer.android.com/topic/libraries/architecture/room)
 
 [Android Architecture Components: Room — Relationships by Paulina Szklarska](https://android.jlelse.eu/android-architecture-components-room-relationships-bf473510c14a)
 
