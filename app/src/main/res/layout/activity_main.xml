@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/clMainContainer"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/clNavigationContainer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<android.support.design.widget.BottomNavigationView
+			android:id="@+id/bnvMainNavigation"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:visibility="visible"
+			app:itemBackground="@color/colorPrimaryDark"
+			app:itemIconTint="@color/white"
+			app:itemTextColor="@color/white"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:menu="@menu/bottom_navigation_menu">
+		</android.support.design.widget.BottomNavigationView>
+	</android.support.constraint.ConstraintLayout>
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/clContentContainer"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/clNavigationContainer"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		<android.support.design.widget.CoordinatorLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/crdlShacksContainer"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			<android.support.constraint.ConstraintLayout
+				android:id="@+id/clFragmentsContainer"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+			</android.support.constraint.ConstraintLayout>
+		</android.support.design.widget.CoordinatorLayout>
+	</android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
