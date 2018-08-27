@@ -11,15 +11,21 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import com.greylabs.weathercities.R
+import com.greylabs.weathercities.component.App
 import com.greylabs.weathercities.dbtools.DBController
 import com.greylabs.weathercities.models.CityModel
 import com.greylabs.weathercities.models.CityType
 import com.greylabs.weathercities.models.SeasonModel
 import com.greylabs.weathercities.models.SeasonType
-import com.greylabs.weathercities.utils.SnacksMachine
+import com.greylabs.weathercities.utils.SnacksMachineClass
 import kotlinx.android.synthetic.main.v_add_city.*
+import javax.inject.Inject
 
 class CityEditorFragment : Fragment() {
+
+	@Inject
+	lateinit var snacks : SnacksMachineClass
+
 	var isEditor = false
 	var seasonsCache: ArrayList<SeasonModel> = ArrayList()
 	var lastPosition = 0
@@ -31,6 +37,7 @@ class CityEditorFragment : Fragment() {
 	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+		App.getComponent().inject(this)
 		
 		var cityTypesAdapter: ArrayAdapter<String> = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, arrayOf(CityType.Small.toString(), CityType.Medium.toString(), CityType.Big.toString()))
 		cityTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -285,7 +292,7 @@ class CityEditorFragment : Fragment() {
 	fun saveCityToDatabase() {
 		when (FragmentsController.getEditorFlag()) {
 			EditorFlag.EDIT -> {
-				SnacksMachine.showSnackbar("Changes saved", "green")
+				snacks.showSnackbar("Changes saved", "green")
 				FragmentsController.showFragment(FragmentType.SETTINGS)
 				var city = CityModel(etCityName.text.toString(), spCityType.getSelectedItem().toString())
 				Thread() {
@@ -293,7 +300,7 @@ class CityEditorFragment : Fragment() {
 						DBController.weatherDataBase?.cityModelDAO()?.insertAll(city)
 						saveSeasonsCacheToDatabase()
 					} else {
-						SnacksMachine.showSnackbar("Some city fields is empty!", "orange")
+						snacks.showSnackbar("Some city fields is empty!", "orange")
 					}
 				}.start()
 			}
@@ -303,17 +310,17 @@ class CityEditorFragment : Fragment() {
 					if (city.cityName != "" && city.cityType != "") {
 						DBController.weatherDataBase?.cityModelDAO()?.getCityByName(city.cityName)?.let {
 							if (it.isNotEmpty()) {
-								SnacksMachine.showSnackbar("City already exists!", "red")
+								snacks.showSnackbar("City already exists!", "red")
 							} else {
 								Log.d("CityEditorFragment", "${city.cityName} ${city.cityType}")
-								SnacksMachine.showSnackbar("New city added", "green")
+								snacks.showSnackbar("New city added", "green")
 								FragmentsController.showFragment(FragmentType.SETTINGS)
 								DBController.weatherDataBase?.cityModelDAO()?.insertAll(city)
 								saveSeasonsCacheToDatabase()
 							}
 						}
 					} else {
-						SnacksMachine.showSnackbar("Some city fields is empty!", "orange")
+						snacks.showSnackbar("Some city fields is empty!", "orange")
 					}
 				}.start()
 			}
@@ -389,7 +396,7 @@ class CityEditorFragment : Fragment() {
 				Log.d("CityEditorFragment", "${seasonsCache.last().seasonsTempByMonth}")
 				Log.d("CityEditorFragment", "${seasonsCache.last().seasonType}")
 			} else {
-				SnacksMachine.showSnackbar("Some city fields is empty!", "orange")
+				snacks.showSnackbar("Some city fields is empty!", "orange")
 			}
 		}.start()
 	}
