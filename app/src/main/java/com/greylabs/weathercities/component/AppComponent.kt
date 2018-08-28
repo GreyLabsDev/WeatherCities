@@ -1,16 +1,28 @@
 package com.greylabs.weathercities.component
 
+import android.app.Application
 import com.greylabs.weathercities.MainActivity
 import com.greylabs.weathercities.fragments.CityEditorFragment
+import com.greylabs.weathercities.utils.ActivityBindingModule
 import com.greylabs.weathercities.utils.SnacksMachineModule
+import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
 @Component (modules = [
-                SnacksMachineModule::class
+                SnacksMachineModule::class,
+                ActivityBindingModule::class
             ])
-interface AppComponent {
-    fun inject(mainActivity: MainActivity)
-    fun inject(cityEditorFragment: CityEditorFragment)
+interface AppComponent : AndroidInjector<App> {
+    override fun inject(instance: App)
+
+    @Component.Builder
+    interface Builder{
+        @BindsInstance
+        fun application(application: Application) : AppComponent.Builder
+        fun build() : AppComponent
+    }
+
 }

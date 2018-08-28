@@ -1,5 +1,6 @@
 package com.greylabs.weathercities.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -18,10 +19,12 @@ import com.greylabs.weathercities.models.CityType
 import com.greylabs.weathercities.models.SeasonModel
 import com.greylabs.weathercities.models.SeasonType
 import com.greylabs.weathercities.utils.SnacksMachineClass
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.v_add_city.*
 import javax.inject.Inject
 
-class CityEditorFragment : Fragment() {
+class CityEditorFragment : DaggerFragment() {
 
 	@Inject
 	lateinit var snacks : SnacksMachineClass
@@ -30,14 +33,19 @@ class CityEditorFragment : Fragment() {
 	var seasonsCache: ArrayList<SeasonModel> = ArrayList()
 	var lastPosition = 0
 	var currentPosition = 0
-	
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return inflater.inflate(R.layout.v_add_city, container, false)
 	}
-	
+
+	override fun onAttach(context: Context?) {
+		AndroidSupportInjection.inject(this)
+		super.onAttach(context)
+	}
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		App.getComponent().inject(this)
+//		App.getComponent().inject(this)
 		
 		var cityTypesAdapter: ArrayAdapter<String> = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, arrayOf(CityType.Small.toString(), CityType.Medium.toString(), CityType.Big.toString()))
 		cityTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
