@@ -2,11 +2,14 @@
 
 ### One of my test tasks realization
 
-- Spent time ~ 12-15h
+- Spent time ~ 12-15h (for base realization)
 - Single Activity Application
 
 **Technologies**
 - Kotlin & Room ORM (Android Architecture Components)
+
+**Additional tasks in progress**
+- Dagger 2 integration
 
 ### Useful links
 
