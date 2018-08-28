@@ -1,10 +1,9 @@
-package com.greylabs.weathercities.component
+package com.greylabs.weathercities.di.component
 
 import android.app.Application
-import com.greylabs.weathercities.MainActivity
-import com.greylabs.weathercities.fragments.CityEditorFragment
-import com.greylabs.weathercities.utils.ActivityBindingModule
-import com.greylabs.weathercities.utils.SnacksMachineModule
+import com.greylabs.weathercities.di.app.App
+import com.greylabs.weathercities.di.module.ActivityBindingModule
+import com.greylabs.weathercities.di.module.SnacksMachineModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -24,7 +23,7 @@ interface AppComponent : AndroidInjector<App> {
     @Component.Builder
     interface Builder{
         @BindsInstance
-        fun application(application: Application) : AppComponent.Builder
+        fun application(application: Application) : Builder
         fun build() : AppComponent
     }
 

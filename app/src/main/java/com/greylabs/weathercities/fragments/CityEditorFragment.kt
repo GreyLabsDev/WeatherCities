@@ -2,7 +2,6 @@ package com.greylabs.weathercities.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -12,7 +11,6 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import com.greylabs.weathercities.R
-import com.greylabs.weathercities.component.App
 import com.greylabs.weathercities.dbtools.DBController
 import com.greylabs.weathercities.models.CityModel
 import com.greylabs.weathercities.models.CityType

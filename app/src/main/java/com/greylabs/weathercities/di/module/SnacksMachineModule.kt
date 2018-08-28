@@ -1,6 +1,7 @@
-package com.greylabs.weathercities.utils
+package com.greylabs.weathercities.di.module
 
 import android.support.annotation.NonNull
+import com.greylabs.weathercities.utils.SnacksMachineClass
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

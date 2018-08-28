@@ -1,4 +1,4 @@
-package com.greylabs.weathercities.component
+package com.greylabs.weathercities.di.scope
 
 import javax.inject.Scope
 

@@ -1,5 +1,6 @@
-package com.greylabs.weathercities.component
+package com.greylabs.weathercities.di.app
 
+import com.greylabs.weathercities.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
