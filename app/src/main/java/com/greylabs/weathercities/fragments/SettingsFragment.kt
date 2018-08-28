@@ -11,9 +11,16 @@ import com.greylabs.weathercities.R
 import com.greylabs.weathercities.adapters.CitiesAdapter
 import com.greylabs.weathercities.dbtools.DBController
 import com.greylabs.weathercities.models.CityModel
+import com.greylabs.weathercities.utils.SnacksMachineClass
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.f_settings.*
+import javax.inject.Inject
 
-class SettingsFragment : Fragment(), DataChangeListener {
+class SettingsFragment : DaggerFragment(), DataChangeListener {
+
+	@Inject
+	lateinit var snacks : SnacksMachineClass
+
 	override fun onDataChanged() {
 		rvCitiesList.post {
 			rvCitiesList.adapter.notifyDataSetChanged()

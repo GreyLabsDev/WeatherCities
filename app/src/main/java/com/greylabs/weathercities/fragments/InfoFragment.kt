@@ -9,9 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.greylabs.weathercities.R
 import com.greylabs.weathercities.utils.FunAnimator
+import com.greylabs.weathercities.utils.SnacksMachineClass
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.f_info.*
+import javax.inject.Inject
 
-class InfoFragment : Fragment() {
+class InfoFragment : DaggerFragment() {
+
+	@Inject
+	lateinit var snacks : SnacksMachineClass
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return inflater.inflate(R.layout.f_info, container, false)
 	}

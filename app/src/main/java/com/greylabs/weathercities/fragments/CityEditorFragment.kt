@@ -44,8 +44,7 @@ class CityEditorFragment : DaggerFragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-//		App.getComponent().inject(this)
-		
+
 		var cityTypesAdapter: ArrayAdapter<String> = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, arrayOf(CityType.Small.toString(), CityType.Medium.toString(), CityType.Big.toString()))
 		cityTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 		spCityType.adapter = cityTypesAdapter

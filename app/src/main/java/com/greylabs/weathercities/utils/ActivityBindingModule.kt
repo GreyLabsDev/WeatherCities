@@ -3,6 +3,7 @@ package com.greylabs.weathercities.utils
 import com.greylabs.weathercities.MainActivity
 import com.greylabs.weathercities.component.AppScope
 import com.greylabs.weathercities.fragments.CityEditorFragment
+import com.greylabs.weathercities.fragments.InfoFragment
 import com.greylabs.weathercities.fragments.SettingsFragment
 import com.greylabs.weathercities.fragments.WeatherFragment
 import dagger.Module
@@ -23,4 +24,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract fun weatherFragment() : WeatherFragment
+
+    @ContributesAndroidInjector
+    abstract fun infoFragment() : InfoFragment
 }

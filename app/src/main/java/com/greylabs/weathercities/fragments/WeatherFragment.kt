@@ -15,15 +15,21 @@ import com.greylabs.weathercities.R
 import com.greylabs.weathercities.dbtools.DBController
 import com.greylabs.weathercities.models.CityModel
 import com.greylabs.weathercities.models.SeasonModel
+import com.greylabs.weathercities.utils.SnacksMachineClass
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.f_weather.*
 import kotlinx.android.synthetic.main.v_weather_card.view.*
+import javax.inject.Inject
 
-class WeatherFragment : Fragment() {
+class WeatherFragment : DaggerFragment() {
 	
 	var selectedCity: CityModel? = null
 	var selectedCitySeasons: List<SeasonModel>? = null
 	private var avgTemp = 999
 	private var tempSum = 999
+
+	@Inject
+	lateinit var snacks : SnacksMachineClass
 	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
