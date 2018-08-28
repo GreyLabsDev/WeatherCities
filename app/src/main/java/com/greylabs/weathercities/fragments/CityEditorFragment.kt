@@ -29,7 +29,6 @@ class CityEditorFragment : DaggerFragment() {
 	@Inject
 	lateinit var snacks : SnacksMachineClass
 
-	var isEditor = false
 	var seasonsCache: ArrayList<SeasonModel> = ArrayList()
 	var lastPosition = 0
 	var currentPosition = 0
