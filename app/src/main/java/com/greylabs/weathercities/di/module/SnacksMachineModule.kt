@@ -16,11 +16,11 @@ class SnacksMachineModule {
     @Singleton
     fun provideSnacksMachine() : SnacksMachineClass = SnacksMachineClass()
 
-
     //Binds-version of module
 
 //    @Binds
 //    @NonNull
 //    @Singleton
 //    abstract fun provideSnacksMachine() : SnacksMachineClass
+
 }
