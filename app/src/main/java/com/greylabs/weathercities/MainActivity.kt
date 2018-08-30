@@ -36,15 +36,19 @@ class MainActivity : DaggerAppCompatActivity() {
             when (item.itemId) {
                 R.id.item_weather -> {
                     FragmentsController.showFragment(FragmentType.WEATHER)
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.item_settings -> {
                     FragmentsController.showFragment(FragmentType.SETTINGS)
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.item_info -> {
                     FragmentsController.showFragment(FragmentType.INFO)
+                    return@setOnNavigationItemSelectedListener true
                 }
+                else -> return@setOnNavigationItemSelectedListener true
             }
-            return@setOnNavigationItemSelectedListener true
+
         }
 
         bnvMainNavigation.menu.findItem(R.id.item_weather).isChecked = true

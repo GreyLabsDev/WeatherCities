@@ -21,10 +21,6 @@ interface AppComponent : AndroidInjector<App> {
     override fun inject(instance: App)
 
     @Component.Builder
-    interface Builder{
-        @BindsInstance
-        fun application(application: Application) : Builder
-        fun build() : AppComponent
-    }
+    abstract class Builder : AndroidInjector.Builder<App>()
 
 }
