@@ -9,6 +9,9 @@
 - Kotlin & Room ORM (Android Architecture Components)
 
 **Additional tasks in progress**
+- Add DB module to DI
+
+**Additional tasks completed**
 - Dagger 2 integration
 
 ### Useful links
