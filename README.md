@@ -5,6 +5,12 @@
 - Spent time ~ 12-15h (for base realization)
 - Single Activity Application
 
+
+![screenshoot](https://github.com/GreyLabsDev/WeatherCities/blob/master/scr1.jpg)
+![screenshoot](https://github.com/GreyLabsDev/WeatherCities/blob/master/scr2.jpg)
+![screenshoot](https://github.com/GreyLabsDev/WeatherCities/blob/master/scr3.jpg)
+
+
 **Technologies**
 - Kotlin & Room ORM (Android Architecture Components)
 
